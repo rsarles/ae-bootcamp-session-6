@@ -29,7 +29,7 @@ This is the existing web application monorepo (`packages/frontend` + `packages/b
 
 **Purpose**: Confirm the existing project baseline before making changes. No new project initialization, dependencies, or tooling configuration is required — this feature reuses the existing frontend stack (React, Jest, `@testing-library/react`).
 
-- [ ] T001 Run `npm test` in `packages/frontend` to confirm the existing test suite passes before any changes (baseline check; no code changes)
+- [X] T001 Run `npm test` in `packages/frontend` to confirm the existing test suite passes before any changes (baseline check; no code changes)
 
 ---
 
@@ -51,18 +51,18 @@ This is the existing web application monorepo (`packages/frontend` + `packages/b
 
 > **NOTE**: Write these tests FIRST, ensure they FAIL before implementation. All tasks below add cases to the same file, so they must run sequentially (no [P]).
 
-- [ ] T002 [US1] Add test "renders Overdue badge for an incomplete todo with a due date in the past" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 1)
-- [ ] T003 [US1] Add test "does not render Overdue badge for a completed todo with a due date in the past" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 2)
-- [ ] T004 [US1] Add test "does not render Overdue badge for a todo with no due date" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 3)
-- [ ] T005 [US1] Add test "does not render Overdue badge for an incomplete todo due today or in the future" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 4 + edge case: due date exactly today is not overdue)
-- [ ] T006 [US1] Add test "removes the Overdue badge immediately after toggling an overdue todo to complete" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 5)
+- [X] T002 [US1] Add test "renders Overdue badge for an incomplete todo with a due date in the past" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 1)
+- [X] T003 [US1] Add test "does not render Overdue badge for a completed todo with a due date in the past" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 2)
+- [X] T004 [US1] Add test "does not render Overdue badge for a todo with no due date" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 3)
+- [X] T005 [US1] Add test "does not render Overdue badge for an incomplete todo due today or in the future" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 4 + edge case: due date exactly today is not overdue)
+- [X] T006 [US1] Add test "removes the Overdue badge immediately after toggling an overdue todo to complete" in `packages/frontend/src/components/__tests__/TodoCard.test.js` (Acceptance Scenario 5)
 
 ### Implementation for User Story 1
 
-- [ ] T007 [US1] Implement an `isOverdue(todo)` pure helper function in `packages/frontend/src/components/TodoCard.js` that returns `false` when `todo.completed` is truthy or `todo.dueDate` is null/empty, and otherwise compares the date-only parsed `dueDate` strictly before today's local date (per [data-model.md](./data-model.md) pseudocode) — depends on T002-T006 existing and failing
-- [ ] T008 [US1] Render a conditional `<span className="overdue-badge">Overdue</span>` next to the due date in the non-editing view of `packages/frontend/src/components/TodoCard.js`, shown only when `isOverdue(todo)` is `true` — depends on T007
-- [ ] T009 [P] [US1] Add an `.overdue-badge` CSS rule in `packages/frontend/src/App.css` (near the existing `.todo-due-date` rule) styled with `color: var(--danger-color)` and appropriate small-badge spacing/sizing, consistent with existing `.btn-danger`/`.btn-delete` usage of the Danger color role
-- [ ] T010 [US1] Run `npm test` in `packages/frontend` to confirm tests T002-T006 now pass and no existing `TodoCard` tests regressed — depends on T007, T008, T009
+- [X] T007 [US1] Implement an `isOverdue(todo)` pure helper function in `packages/frontend/src/components/TodoCard.js` that returns `false` when `todo.completed` is truthy or `todo.dueDate` is null/empty, and otherwise compares the date-only parsed `dueDate` strictly before today's local date (per [data-model.md](./data-model.md) pseudocode) — depends on T002-T006 existing and failing
+- [X] T008 [US1] Render a conditional `<span className="overdue-badge">Overdue</span>` next to the due date in the non-editing view of `packages/frontend/src/components/TodoCard.js`, shown only when `isOverdue(todo)` is `true` — depends on T007
+- [X] T009 [P] [US1] Add an `.overdue-badge` CSS rule in `packages/frontend/src/App.css` (near the existing `.todo-due-date` rule) styled with `color: var(--danger-color)` and appropriate small-badge spacing/sizing, consistent with existing `.btn-danger`/`.btn-delete` usage of the Danger color role
+- [X] T010 [US1] Run `npm test` in `packages/frontend` to confirm tests T002-T006 now pass and no existing `TodoCard` tests regressed — depends on T007, T008, T009
 
 **Checkpoint**: User Story 1 is fully functional and independently testable — overdue todos show the badge, non-overdue/completed/no-due-date todos do not, and the badge disappears immediately on toggle.
 
@@ -72,8 +72,8 @@ This is the existing web application monorepo (`packages/frontend` + `packages/b
 
 **Purpose**: Final validation across the whole feature.
 
-- [ ] T011 [P] Manually validate all scenarios in [quickstart.md](./quickstart.md) against the running app (`npm start`), including the accessibility check that the badge is a text label, not a color-only cue
-- [ ] T012 Run the full frontend test suite (`npm test` in `packages/frontend`) to confirm no regressions across `TodoCard`, `TodoList`, `TodoForm`, `ConfirmDialog`, and `todoService` tests
+- [X] T011 [P] Manually validate all scenarios in [quickstart.md](./quickstart.md) against the running app (`npm start`), including the accessibility check that the badge is a text label, not a color-only cue
+- [X] T012 Run the full frontend test suite (`npm test` in `packages/frontend`) to confirm no regressions across `TodoCard`, `TodoList`, `TodoForm`, `ConfirmDialog`, and `todoService` tests
 
 ---
 

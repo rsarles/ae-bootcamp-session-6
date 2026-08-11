@@ -62,6 +62,16 @@ function TodoCard({ todo, onToggle, onEdit, onDelete, isLoading }) {
     });
   };
 
+  const isOverdue = (todoItem) => {
+    if (todoItem.completed) return false;
+    if (!todoItem.dueDate) return false;
+    const [year, month, day] = todoItem.dueDate.split('-').map(Number);
+    const dueDate = new Date(year, month - 1, day);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return dueDate < today;
+  };
+
   if (isEditing) {
     return (
       <div className="todo-card todo-card-edit">
@@ -122,6 +132,7 @@ function TodoCard({ todo, onToggle, onEdit, onDelete, isLoading }) {
         {todo.dueDate && (
           <p className="todo-due-date">
             Due: {formatDate(todo.dueDate)}
+            {isOverdue(todo) && <span className="overdue-badge">Overdue</span>}
           </p>
         )}
       </div>
