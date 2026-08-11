@@ -23,6 +23,12 @@ full value on its own — a user can immediately see which tasks need attention.
 past, present, and future (some complete, some incomplete) and verifying only
 incomplete todos with a past due date are shown with the overdue indicator.
 
+## Clarifications
+
+### Session 2026-08-11
+
+- Q: What form should the overdue indicator take on a todo card? → A: A small text badge/label (e.g. "Overdue") next to the due date, styled with the Danger color role.
+
 **Acceptance Scenarios**:
 
 1. **Given** a todo with a due date earlier than today and not marked complete,
@@ -62,8 +68,10 @@ incomplete todos with a past due date are shown with the overdue indicator.
 - **FR-003**: System MUST NOT treat a completed todo as overdue, regardless of
   its due date.
 - **FR-004**: System MUST display incomplete, overdue todos with a visually
-  distinct indicator (e.g., color/label) that differentiates them from
-  non-overdue and completed todos.
+  distinct "Overdue" text badge/label, styled with the Danger color role,
+  positioned next to the due date, to differentiate them from non-overdue and
+  completed todos. The text badge provides a non-color cue so the indicator
+  remains distinguishable for users who cannot rely on color alone.
 - **FR-005**: System MUST recompute each todo's overdue status whenever the
   todo list is rendered, based on the current date at render time.
 - **FR-006**: System MUST continue to display each todo's existing title, due
